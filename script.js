@@ -88,7 +88,7 @@ let goToCart = function () {
   for (let i = 0; i < products.length; i++) {
     let product = products[i];
     product.item = i+1;
-    total += product.price * product.qty;
+    total += product.unitPrice * product.quantity;
     innerHTML += `<tr>
       <th scope="row">${product.item}</th>
       <td>${product.quantity}</td>
@@ -171,6 +171,5 @@ fetch(
   .then((response) => response.json())
   .then((data) => {
     mainData = data;
-    console.log(mainData);
     createInfo().then(() => assignListeners());
   });
